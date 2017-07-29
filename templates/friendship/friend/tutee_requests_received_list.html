@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<ul>
+{% for received_request in requests %}
+    <li>{{received_request.from_user}} has requested for you to be his/her tutor a <a href="{% url 'friendship_requests_detail' received_request.id %}">view</a></li>
+{% empty %}
+</ul>
+<div>Sorry, you have no requests from any tutee yet.</div>
+
+{% endfor %}
+
+{% endblock %}

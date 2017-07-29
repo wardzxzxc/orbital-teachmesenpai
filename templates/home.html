@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %} Welcome | {% endblock %}
+
+{% block jumbotron %}
+
+<div class = "banner1">
+	<div class ="container">
+		<div class = "row">
+			<div class = 'col-sm-5'>
+				<h1>Teach Me Senpai</h1>
+				<br>
+				<p align = justify>Teach Me Senpai is an online platform that facilitates peer-to-peer teaching. Coined as the <i> Carousell</i> for tuition services, students would be able to render or search for tuition services.</p>
+				<br>
+				<p>Sign up today and start searching!</p>
+				<p>
+				<a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}" role="button">Sign Up &raquo;</a>
+				</p>
+				<p>
+				Already a user? <a href="{% url 'auth_login' %}" role="button">Login here!</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="strip1">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+			</div>
+			<div class="col-sm-6">
+				<h2>Runs on any device.</h2>
+				<p>The Teach Me Senpai web-app runs smoothly on browsers across all modern smartphones, tablets, PCs. Android and iOS apps coming soon.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="banner2">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+			</div>
+			<div class="col-sm-5">
+				<h2>Share your knowledge, no strings attached.</h2>
+				<p>Meet new study companions or perhaps <i>Senpais</i>. Exchange nothing but your wisdom with our Honour Points system.</p>
+				<button type="button" class="btn btn-outline-secondary">Coming Soon</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="built">
+	Built with:
+</div>
+
+<div class="strip2">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<img src="{% static 'img/django.svg' %}" height="100">
+			</div>
+			<div class="col-sm-3">
+				<img src="{% static 'img/html5.svg' %}" height="100">
+			</div>
+			<div class="col-sm-3">
+				<img src="{% static 'img/css3.svg' %}" height="105">
+			</div>
+			<div class="col-sm-3">
+				<img src="{% static 'img/bootstrap-4.svg' %}" height="90">
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}

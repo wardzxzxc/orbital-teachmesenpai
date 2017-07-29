@@ -1,0 +1,84 @@
+body {
+/*  min-height: 1000px;*/
+}
+
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+#navbar-logo {
+  height: 35px;
+  width: 35px;
+  margin-top: -8px;
+}
+
+.navbar {
+	background-color: #FFFFFF;
+}
+
+.jumbotron {
+	background-color: #fdd1d9;
+  margin-bottom: 0px;
+}
+
+.footer {
+  font-size: 8;
+  padding-top: 10px;
+  text-align: right;
+  border-top: 1px solid #EEE;
+}
+
+.banner1{
+  padding-top: 120px;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  color: white;
+  background: url('/staticabc/img/banner1.jpg') no-repeat left top;
+  background-size: cover;
+}
+
+.banner2 {
+  padding-top: 140px;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  color: white;
+  background: url('/staticabc/img/banner2.jpg') no-repeat center left;
+  background-size: cover;
+}
+
+.banner1 h1 {
+  font-family: 'Trebuchet MS';
+  font-size: 3.5em;
+  text-shadow: 1px 1px black;
+}
+
+.banner1 p {
+  font-size: 1.3em;
+  text-shadow: 1px 1px black;
+}
+
+.strip1 {
+  padding-top: 100px;
+  height: 350px;
+  position: relative;
+  background: url('/staticabc/img/devices.png') no-repeat 15% 70%;
+  background-color: #F9F9F9;
+  background-size: 40%;
+}
+
+.strip2 {
+  padding-left: 150px;
+  height: 160px;
+  position: relative;
+  background-color: #F9F9F9;
+}
+
+.built {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #F9F9F9;
+  text-align: center;
+  font-size: 2em;
+}

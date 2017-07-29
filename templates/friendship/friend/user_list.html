@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load friendshiptags %}
+
+{% block content %}
+
+<h1>Your Tutors / Tutees</h1>
+{% get_by_name friendship_context_object_name as var %}
+{% friends var %}
+{% endblock %}

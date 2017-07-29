@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+
+	<div class = 'row'>
+	<div class = 'col-sm-6 col-sm-offset-3'>
+	<h1><center>{{ profile_title }}</center></h1>
+	</div>
+	</div>
+
+	<div class = 'row'>
+	<div class = 'col-sm-6 col-sm-offset-3'>
+	<form method='POST' action=''>{% csrf_token %}
+	{{profile_form|crispy}}
+
+	<input class = 'btn btn-default' type = 'save' value = 'Save'/>
+
+	</form>
+	</div>
+	</div>
+	
+{% else %}
+
+	<p> You have not logged in! Please log in before setting up your profile.</p>
+	<p> Click <a href="{% url 'registration_register' %}">here </a> to sign up!</p>
+
+{% endif %}
+{% endblock %}

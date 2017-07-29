@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<ul>
+{% for sent_request in requests %}
+    <li>Tutor request sent to {{ sent_request.to_user }} </li>
+{% empty %}
+</ul>
+<div>Sorry, you have not sent any requests to any tutor.</div>
+
+{% endfor %}
+
+{% endblock %}
