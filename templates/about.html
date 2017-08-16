@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %} About | {% endblock %}
+
+{% block jumbotron %}
+
+<div class = "about">
+	<div class = "container">
+		<div class = "col-sm-5">
+			<h1>Teach Me Senpai</h1>
+			<h1>By students, for students.</h1>
+		</div>
+	</div>
+</div>
+
+<div class = "container">
+	<div class = "col-sm-2">
+	</div>
+	<div class = "col-sm-8">
+		<h2>Motivations</h2>
+		<p>
+		As fellow university students, we often struggle with challenging modules without a friendly <i>Senpai</i> we can turn to. However, we are positive that there are academically stronger students out there willing to help their peers out. Hence as part of the NUS Orbital programme, we created Teach Me Senpai, a platform for peer-to-peer teaching amongst university students.
+		</p>
+		<h2>Creators</h2>
+		PHOTO EDWARD PHOTO LINGYUN
+		<p>
+		NUS School of Computing (Information Systems)
+		</p>
+	</div>
+</div>
+
+{% endblock %}

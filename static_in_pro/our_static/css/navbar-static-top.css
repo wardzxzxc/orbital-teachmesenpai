@@ -82,3 +82,21 @@ body {
   text-align: center;
   font-size: 2em;
 }
+
+.about {
+  padding-top: 40px;
+  padding-left: 100px;
+  height: 220px;
+  width: 100%;
+  position: relative;
+  color: beige;
+  background: url('/staticabc/img/about.jpg') no-repeat center left;
+  background-size: cover;
+  font-family: 'Trebuchet MS';
+  font-size: 3.5em;
+  text-shadow: 1px 1px black;
+}
+
+.creators {
+  background-color: #F9F9F9;
+}

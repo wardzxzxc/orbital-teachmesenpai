@@ -15,9 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from accountsregistration.views import home, accounts_profile, profile_list, update_profile, points_status
+from accountsregistration.views import home, about, accounts_profile, profile_list, update_profile, points_status
 from modulerequest.views import create_module_request, search_module_requests, module_request_detail
-from teachme.views import about
 from django.conf.urls.static import static
 from django.conf import settings
 from accountsregistration.forms import AccountsProfileForm
@@ -26,6 +25,7 @@ from registration.backends.default.views import RegistrationView
 
 urlpatterns = [
 	url(r'^$', home, name='home'),
+    url(r'^about$', about, name='about'),
     url(r'^profile_create$', accounts_profile, name='profile'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^profile_search$', profile_list, name='profile_search'),
