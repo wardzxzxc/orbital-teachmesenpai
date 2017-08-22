@@ -3,5 +3,9 @@
 {% block head_title %} Logout | {% endblock %}
 
 {% block content %}
-<p class='text-align-center lead'>You have successfully logged out.</p><p class='text-align-center lead'><a href="{% url 'auth_login' %}">Login</a></p></p>
+<div class = 'cont'>
+	<p class='text-align-center lead'>You have successfully logged out.</p>
+	<p class='text-align-center lead'>
+	<a href="{% url 'auth_login' %}">Back to Login</a></p>
+</div>
 {% endblock %}

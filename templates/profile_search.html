@@ -6,48 +6,49 @@
 {% block content %}
 {% if request.user.is_authenticated %}
 
-	<div class = 'row'>
 	<div class = 'col-sm-6 col-sm-offset-3'>
-	<h1>Search For Modules</h1><br>
-	</div>
+	<h1>Search For Tutors</h1><br>
 	</div>
 
-	<div class = 'row'>
 	<div class = 'col-sm-6 col-sm-offset-3'>
 	<form method='GET' action =''>
-	<input type = 'text' name = 'q' placeholder="Search Modules, Tutor" value = '{{ request.get.q }}'/>
-	<input type = 'submit' value = 'Search'/>
+	<div class='input-group'>
+		<input type = 'text' class = 'form-control' name = 'q' placeholder="Search Modules, Tutors" value = '{{ request.get.q }}'/>
+		<span class="input-group-btn">
+        <button class="btn btn-info" type="submit">Search</button>
+      	</span>
+	</div>
 	</form><br>
+	</div>
 
 	<body>
 	{% for obj in profiles_list %}
-	</body>
 		{% if obj.user != request.user %}
-	<div class = 'row'>
-	  <div class="col-sm-6 col-md-8">
-	    <div class="thumbnail">
-	 
-	        <p><b>Full Name:</b> {{obj.full_name}}</p>
-	        <p><b>User:</b> {{obj.user}}</p>
-	        <p><b>Contact Number:</b> {{obj.contact_number}}</p>
-	        <p><b>Course:</b> {{obj.course}}</p>
-	        <p><b>Faculty:</b> {{obj.faculty}}</p>
-	        <p><b>Tuition Cost:</b> {{obj.tuition_cost}}
-	        <p><b>Modules Offered:</b> {{obj.module_to_offer_1}} {{obj.module_to_offer_2}} {{obj.module_to_offer_3}}</p>
-			<p><b>Place of Convenience:</b> {{obj.place_of_convenience}}</p>
-			<p><b>Achievement Level:</b> {% if obj.points < 100 %} Amateur Senpai {% elif obj.points < 200 %} Advanced Senpai {% elif obj.points >= 200 %} Master Sensei {% endif %}
-			<center><a href = "{% url 'friendship_add_tutor' obj.user %}" class = 'btn btn-default'>Request</a></center>
-	
-	    </div>
-	  </div>
-	</div>
+			<div class = 'row'>
+			  <div class="col-sm-6 col-sm-offset-3">
+			    <div class="thumbnail">
+			 
+			        <p><b>Full Name:</b> {{obj.full_name}}</p>
+			        <p><b>Username:</b> {{obj.user}}</p>
+			        <p><b>Contact Number:</b> {{obj.contact_number}}</p>
+			        <p><b>Course:</b> {{obj.course}}</p>
+			        <p><b>Faculty:</b> {{obj.faculty}}</p>
+			        <p><b>Tuition Cost:</b> {{obj.tuition_cost}}</p>
+			        <p><b>Modules Offered:</b> {{obj.module_to_offer_1}} {{obj.module_to_offer_2}} {{obj.module_to_offer_3}}</p>
+					<p><b>Place of Convenience:</b> {{obj.place_of_convenience}}</p>
+					<p><b>Achievement Level:</b> {% if obj.points < 100 %} Amateur Senpai {% elif obj.points < 200 %} Advanced Senpai {% elif obj.points >= 200 %} Master Sensei {% endif %}</p>
+					<center><a href = "{% url 'friendship_add_tutor' obj.user %}" class = 'btn btn-info'>Request</a></center>
+			
+			    </div>
+			  </div>
+			</div>
 		{% endif %}	
 	{% endfor %}
-
+	</body>
 {% else %}
-
+<div class = 'cont'>
 	<p> You have not logged in! Please log in before searching for modules.</p>
 	<p> Click <a href="{% url 'registration_register' %}">here </a> to sign up!</p>
-
+</div>
 {% endif %}
 {% endblock %}

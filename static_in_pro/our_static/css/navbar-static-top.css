@@ -1,5 +1,5 @@
 body {
-/*  min-height: 1000px;*/
+  min-height: 100%;
 }
 
 .navbar-static-top {
@@ -24,6 +24,7 @@ body {
 .footer {
   font-size: 8;
   padding-top: 10px;
+  padding-bottom: 10px;
   text-align: right;
   border-top: 1px solid #EEE;
 }
@@ -97,6 +98,13 @@ body {
   text-shadow: 1px 1px black;
 }
 
-.creators {
-  background-color: #F9F9F9;
+.cont {
+  min-height: 300px;
+  margin: 80px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.thumbnail {
+  padding: 30px;
 }

@@ -18,8 +18,9 @@ get_friendship_context_object_list_name = lambda: gfriendship_request_sent_liste
 @login_required
 def view_friends(request, username, template_name='friendship/friend/user_list.html'):
     """ View the friends of a user """
-    user = request.user
-    # friends = Friend.objects.friends(user)
+    # user = request.user
+    user = get_object_or_404(user_model, username=request.user)
+    friends = Friend.objects.friends(user)
     return render(request, template_name, {
         get_friendship_context_object_name(): user,
         'friendship_context_object_name': get_friendship_context_object_name()

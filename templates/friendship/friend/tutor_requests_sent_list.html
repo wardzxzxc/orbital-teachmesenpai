@@ -2,13 +2,25 @@
 
 
 {% block content %}
-<ul>
-{% for sent_request in requests %}
-    <li>Tutor request sent to {{ sent_request.to_user }} </li>
-{% empty %}
-</ul>
-<div>Sorry, you have not sent any requests to any tutor.</div>
+<div class = "cont">
 
-{% endfor %}
+	<h1>Requests Sent</h1>
+	<br>
+	<div class="card">
+	  <ul class="list-group list-group-flush">
+	  	{% for sent_request in requests %}
+	    <li class="list-group-item">Tutor request sent to <strong>{{ sent_request.to_user }}</strong></li>
+
+	{% empty %}
+
+		<div class="alert alert-warning" role="alert">
+		  Sorry, you have not sent any requests to any tutor.
+		</div>
+
+		{% endfor %}
+	  </ul>
+	</div>
+
+</div>
 
 {% endblock %}

@@ -1,9 +1,15 @@
-<ul>
-{% for f in friends %}
-   {% if f.first_name or f.last_name %}
-   <li>{{ f.username }} ({{ f.first_name }} {{ f.last_name }})</li>
-   {% else %}
-   <li>{{ f.username }}</li>
-   {% endif %}
-{% endfor %}
-</ul>
+<div class="card">
+	<ul class="list-group list-group-flush">
+	{% for f in friends %}
+	   {% if f.first_name or f.last_name %}
+	   <strong>
+	   <li class="list-group-item">{{ f.username }} ({{ f.first_name }} {{ f.last_name }})</li>
+	   </strong>
+	   {% else %}
+	   <strong>
+	   <li class="list-group-item">{{ f.username }}</li>
+	   </strong>
+	   {% endif %}
+	{% endfor %}
+	</ul>
+</div>

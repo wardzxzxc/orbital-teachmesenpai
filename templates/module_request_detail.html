@@ -18,10 +18,10 @@
 			  <div class="col-sm-6 col-md-8">
 			    <div class="thumbnail">
 			        <p><b>Full Name: </b> {{instance.full_name}}</p>
-			        <p><b>User:</b> {{instance.user}}</p>
+			        <p><b>Username:</b> {{instance.user}}</p>
 			        <p><b>Module Requested:</b> {{instance.module_requested}}</p>
 					<p><b>Contact Number:</b> {{instance.contact_number}}</p>
-					<p><b>Expected Tuition Cost:</b> {{instance.expected_tuition_cost}} points</p>
+					<p><b>Points Offered:</b> {{instance.expected_tuition_cost}} points</p>
 
 			<!-- 		{% friends request.user %} -->
 			    </div>
@@ -30,29 +30,33 @@
 
 		
 			<div>
-				<p class = 'lead'>Comments</p>
+				<p class = 'lead'>Leave a Note</p>
 				<form method = "POST" action = ""> {% csrf_token %}
 				{{ form|crispy }}
-				<input type = 'submit' value = 'Post comment' class = 'btn btn-default'>
+				<input class = 'btn btn-info' type = 'submit' value = 'Post' class = 'btn btn-default'>
 				</form>
 				<hr/>
 				{% for comment in comments %}
 					
 					<blockquote>
-  						<p>{{ comment.content }} .</p>
-  						<footer>via {{ comment.user }} {{ comment.time_stamp|timesince }} ago | {% if comment.children.count > 0 %} {{ comment.children.count }} Comment{% if comment.children.count > 1 %}s {% endif %} | {% endif %}<a class = 'comment-reply-btn' href='#'>Reply</a></footer>
+  						<p>{{ comment.content }}</p>
+  						<footer>by <strong>{{ comment.user }}</strong> {{ comment.time_stamp|timesince }} ago | {% if comment.children.count > 0 %} {{ comment.children.count }} Comment{% if comment.children.count > 1 %}s {% endif %} | {% endif %}
+  						<a class = 'comment-reply-btn' href='#'>Reply</a>
+  						</footer>
 	  						<div class = 'comment-reply' style ='display:none'>
+	  							<br>
 	  							{% for child_comment in comment.children %}
 	  								<blockquote>
-	  								<p>{{ child_comment.content }} .</p>
-	  								<footer>via {{ child_comment.user }} {{ child_comment.time_stamp|timesince }} ago></footer>
+	  								<p>{{ child_comment.content }}</p>
+	  								<footer>by <strong>{{ child_comment.user }}</strong> {{ child_comment.time_stamp|timesince }} ago</footer>
 	  								</blockquote>
 	  							{% endfor %}
 
-		  						<form method="POST" action=""> {% csrf_token %}
+		  						<form method="POST" action="">
+		  							{% csrf_token %}
 									{{ form|crispy }}
 									<input type = 'hidden' name = 'parent_id' value = '{{ comment.id }}'>
-									<input type = 'submit' value = 'Reply' class = 'btn btn-default'>
+									<input type = 'submit' value = 'Reply' class = 'btn btn-info'>
 								</form>
 							</div>
 
@@ -60,8 +64,9 @@
 
 <!--   						</cite></footer> -->
 					</blockquote>
-				<hr/>
+				
 				{% endfor %}
+				<hr/>
 			</div>
 	</div>
 	</div>
