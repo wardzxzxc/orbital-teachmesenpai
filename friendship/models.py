@@ -157,8 +157,10 @@ class FriendshipManager(models.Manager):
         friends = cache.get(key)
 
         if friends is None:
-            qs = Friend.objects.filter(to_user=user).all()
-            friends = list(qs)
+            # qs = Friend.objects.filter(to_user=user).all()
+            # friends = list(qs)
+            qs = Friend.objects.select_related('from_user', 'to_user').filter(to_user=user).all()
+            friends = [u.from_user for u in qs]
             cache.set(key, friends)
 
         return friends
@@ -274,10 +276,10 @@ class FriendshipManager(models.Manager):
     def add_friend(self, from_user, to_user, message=None):
         """ Create a friendship request """
         if from_user == to_user:
-            raise ValidationError("Users cannot be friends with themselves")
+            raise ValidationError("Users cannot add themselves!")
 
         if self.are_friends(from_user, to_user):
-            raise AlreadyFriendsError("Users are already friends")
+            raise AlreadyFriendsError("User already added!")
 
         if message is None:
             message = ''
@@ -288,7 +290,7 @@ class FriendshipManager(models.Manager):
         )
 
         if created is False:
-            raise AlreadyExistsError("Friendship already requested")
+            raise AlreadyExistsError("Already requested!")
 
         if message:
             request.message = message

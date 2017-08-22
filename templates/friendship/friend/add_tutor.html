@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class = 'cont'>
 {% if not to_username == request.user.username %}
-{% if errors %}<p>{{ errors|join:", " }}</p>{% endif %}
-<form method="post">
-{% csrf_token %}
-<input type="hidden" name="to_username" value="{{ to_username }}" />
-<input type="submit" value="add {{ to_username }} as a Tutor" />
-</form>
+
+	{% if errors %}
+	<div class="alert alert-warning" role="alert">
+		<p>
+		<strong>{{ errors|join:", " }}</strong>
+		</p>
+	</div>
+	{% endif %}
+
+	<form method="post">
+	{% csrf_token %}
+	<input type="hidden" name="to_username" value="{{ to_username }}" />
+	<input class="btn btn-info btn-lg btn-block" type="submit" value="Add {{ to_username }} as a Tutor" />
+	</form>
+
 {% endif %}
+</div>
+
 {% endblock %}

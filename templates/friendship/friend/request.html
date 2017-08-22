@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>{{ friendship_request.from_user }} wants you to be his/her tutor {{ friendship_request.to_user }}</div>
 
-<form method="post" action="{% url 'friendship_accept' friendship_request.pk %}">
-{% csrf_token %}
-<input type="submit" value="accept" />
-</form>
+<div class = 'cont'>
+	<strong>{{ friendship_request.from_user }}</strong> wants you to be his/her tutor!
 
-<form method="post" action="{% url 'friendship_reject' friendship_request.pk %}">
-{% csrf_token %}
-<input type="submit" value="reject" />
-</form>
+	<form method="post" action="{% url 'friendship_accept' friendship_request.pk %}">
+	{% csrf_token %}
+	<input class="btn btn-success" type="submit" value="Accept" />
+	</form>
+	
+	<form method="post" action="{% url 'friendship_reject' friendship_request.pk %}">
+	{% csrf_token %}
+	<input class="btn btn-danger" type="submit" value="Reject" />
+	</form>
+</div>
 {% endblock %}

@@ -2,13 +2,28 @@
 
 
 {% block content %}
-<ul>
-{% for received_request in requests %}
-    <li>{{received_request.from_user}} has requested for you to be his/her tutor a <a href="{% url 'friendship_requests_detail' received_request.id %}">view</a></li>
-{% empty %}
-</ul>
-<div>Sorry, you have no requests from any tutee yet.</div>
 
-{% endfor %}
+<div class='cont'>
+
+	<h1>Requests Received</h1>
+	<br>
+	<div class="card">
+	  <ul class="list-group list-group-flush">
+	  	{% for received_request in requests %}
+	    <li class="list-group-item">
+	    <strong>{{received_request.from_user}}</strong> has requested for you to be his/her tutor! <a href="{% url 'friendship_requests_detail' received_request.id %}">View request here</a>
+	    </li>
+	    
+	{% empty %}
+
+	<div class="alert alert-warning" role="alert">
+	  Sorry, you have no requests from any tutee yet.
+	</div>
+
+		{% endfor %}
+	  </ul>
+	</div>
+
+</div>
 
 {% endblock %}

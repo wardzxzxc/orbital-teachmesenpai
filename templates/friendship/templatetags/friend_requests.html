@@ -1,5 +1,7 @@
-<ul>
-    {% for friend_request in friend_requests %}
-        <li>{{ friend_request }}</li>
-    {% endfor %}
-</ul>
+<div class="card">
+	<ul class="list-group list-group-flush">
+	    {% for friend_request in friend_requests %}
+	        <li class="list-group-item">{{ friend_request }}</li>
+	    {% endfor %}
+	</ul>
+</div>
