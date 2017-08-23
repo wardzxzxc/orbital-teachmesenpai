@@ -8,18 +8,19 @@
 	<div class = 'col-sm-6 col-sm-offset-3'>
 	<h1><center>Profile</center></h1>
 	{% if messages %}
-	<ul class="messages">
+		<div class="alert alert-success">
     	{% for message in messages %}
-    		<li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    	<strong>Success!</strong> {{ message }}
     	{% endfor %}
-	</ul>
+    	</div>
 	{% endif %}
 	</div>
 	</div>
 
 	<div class = 'row'>
 	<div class = 'col-sm-6 col-sm-offset-3'>
-	<form method='POST' action=''>{% csrf_token %}
+	<form method='POST' action=''>
+	{% csrf_token %}
 	{{form|crispy}}
 
 	<input class = 'btn btn-info' type = 'submit' value = 'Save'/>

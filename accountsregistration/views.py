@@ -27,6 +27,7 @@ def accounts_profile(request):
 	title_align_center = True
 	if form.is_valid():
 		instance = form.save(commit = False)
+		instance.user = request.user
 		print(form.cleaned_data.get("title"))
 		instance.save()
 		messages.success(request, 'Tutor profile created!')

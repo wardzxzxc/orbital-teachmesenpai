@@ -1,7 +1,9 @@
 {% load i18n %}
 {% trans "Activate account at" %} {{ site.name }}:
 
-Hello there!
+Hello there,
+
+Welcome to Teach Me Senpai!
 
 Click the link below to activate your account.
 

@@ -2,6 +2,10 @@
 {% load i18n %}
 
 {% block content %}
-<p class='lead'>{% trans "Your account is now activated." %}</p>
-<p> Click <a href="{% url 'profile' %}">here </a> to set up your profile!</p>
+<div class = 'cont'>
+	<div class="alert alert-success">
+		<p class='lead'>{% trans "Your account is now activated." %}</p>
+		<p> Click <a href="{% url 'profile' %}">here </a> to set up your tutor profile!</p>
+	</div>
+</div>
 {% endblock %}
